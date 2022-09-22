@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      WS has different types of security credentials depending on how you want
+      to access the cloud account. For example, you need a user name and
+      password to sign in to the AWS Management Console and you need access keys
+      to make programmatic calls to AWS or validating the user to create
+      resources via terraform. If you don’t have an AWS account, you can check
+      how to create an AWS free tier account. There are mainly two types of
+      access through which you can access your AWS account: Console access
+      Programmatic access Check also: Free AWS Training Let’s see the difference
+      between both these accesses. Console Access There are 2 ways in which a
+      user can access the AWS console. You can either log in through a root user
+      or an IAM user. When you first create an AWS account, you will be asked to
+      specify an email address for the account and a password for the root user.
+      To sign in to your AWS account as the root user, you need to provide the
+      same email address and password. The root user can sign in to the AWS
+      Management Console and change the account name, email address, and
+      password. A root user has access to all the resources and permissions
+      available. Whereas IAM users are created by the root user or an IAM
+      administrator within the AWS account. To log in through the IAM user, you
+      should have the account alias or 12-digit AWS account ID, the IAM user
+      name, and the password for the IAM user. If you somehow forget the
+      password for your IAM user, contact your IAM administrator or the account
+      owner. If your IAM administrator gave you permissions to manage your own
+      AWS credentials, then you can change your password periodically, which is
+      a security best practice, using the Security Credentials page. Also Check:
+      Amazon Cloudtrail vs Cloudwatch, know their major differences!
+      Programmatic Access You must create and provide AWS access keys to make
+      programmatic calls to AWS or to use the AWS Command Line Interface or AWS
+      Tools for PowerShell. When you create your access keys, you will get the
+      access key ID (for example, AKIAJIPU77TQL5LB6OIB) and the secret access
+      key (for example, 8Mw77pe6Ua9wr56f6lr069rDPTDWeUvV0q6ZS+6N) as a set. You
+      can assign up to two access keys per user (root user or IAM user). Note:
+      The secret access key is available for download only when you create it.
+      If you don’t download your secret access key or if you lose it, you must
+      create a new one. Read More : About Amazon Route 53. Steps to Create
+      Access Keys 1) Go to the AWS management console, click on your Profile
+      name and then click on My Security Credentials. Security CredentialsAlso
+      Check: Our previous blog post on AWS for testers. Click here 2) Go to
+      Access Keys and select Create New Access Key. Secret KeyGo through this
+      AWS Blog to get a clear understanding of what is aws fargate? 3) Click on
+      Show Access Key and save the access key and secret access key. Note: Make
+      sure you save these as once you close this window, you won’t be able to
+      view them. Once you have the access and secret keys you can use these to
+      create resources using terraform. To check how you can create a VM in AWS
+      using terraform, visit our blog on Automate AWS Virtual Machine using
+      Terraform. Best Practices For Managing AWS Access Keys Here are some of
+      the best practices that you must follow while managing AWS access keys:
+      Never create an account access key: One of the best ways to protect your
+      account is to not create access keys for your AWS account root user unless
+      required. Instead, the recommended best practice is to create one or more
+      AWS Identity and Access Management (IAM) users and grant those IAM users
+      the necessary permissions and use them for everyday interaction with AWS.
+      Use temporary security credentials instead of long-term access keys:
+      Long-term access keys that never expire are not often required. Instead,
+      you can create IAM roles and generate temporary security credentials.
+      Temporary security credentials consist of an access key ID and a secret
+      access key, but they also include a security token that indicates when the
+      credentials expire. Manage IAM user access keys properly: If you must
+      create access keys for programmatic access to AWS, create them for IAM
+      users, granting the users only the permissions they require. Don’t embed
+      access keys directly into code: Put access keys in either the AWS
+      Credentials file or Environment Variables. Check Out: AWS Elastic Load
+      Balancer types. Click here Related Links/References AWS Certified
+      Solutions Architect Associate SAA-CO2 Overview of Amazon Web Services &
+      Concepts AWS Identity And Access Management (IAM) AWS Management Console
+      Walkthrough Next Task For You Begin your journey towards becoming a
+      Certified AWS Solution Architect Associate by joining our FREE Informative
+      Class on Amazon AWS Solution Architect Certification For Beginners & Q/A
+      by clicking on the below image. Free Masterclass Share This Post with Your
+      Friends over Social Media! Filed Under: Amazon Web Services Leave a Reply
+      Your email address will not be published. Required fields are marked *
+      Comment * Name * Email * Website
+    </p>
+  </body>
+</html>
