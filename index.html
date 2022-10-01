@@ -344,8 +344,6 @@
           padding: 10px 5px;
           line-height: 25px;
           padding-bottom: 30px;
-          overflow: auto;
-          white-space: nowrap;
         }
 
         #normal-content {
@@ -365,11 +363,18 @@
         }
 
         #copyright-content {
-          line-height: 17px;
+          line-height: 20px;
         }
 
         .footer-contents #copyright-content a {
           padding-left: 0;
+        }
+
+        @media only screen and (max-width: 330px) {
+          #copyright-content{
+            overflow: auto;
+            white-space: nowrap;
+          }
         }
       }
     </style>
